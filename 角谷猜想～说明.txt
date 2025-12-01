@@ -1,0 +1,257 @@
+
+角谷猜想/考拉兹猜想/3N+1/冰雹猜想
+部分资料指出，Opfer的证明存在逻辑漏洞，但他的论文在数学界曾引发广泛讨论。目前该猜想仍属于未解决状态，
+角谷猜想也叫考拉兹猜想或者3n+1猜想。在1960年代，日本人角谷静夫研究过这个猜想。在1930年代，德国汉堡大学的学生考拉兹，也曾经研究过这个猜想。但这猜想到目前，仍没有任何进展。
+我在ubuntu中Lazarus新建一个小工程名角谷猜想,先用二进制算法观测下有什么规律乎？世界级难题
+
+
+集录一些百度网文的文字:
+例如，有人对“角谷猜想”进行了如下变动：对于任意自然数，若其为偶数则除以2，若其为奇数则乘以3再减1。经过有限次操作后，这一系列数字将不可避免地陷入三个特定的循环之中。
+① 1→2→1；
+② 5→14→7→20→10→5；
+③ 17→50→25→74→37→110→55→164→82→41→122→61→182→91→272→136→68→34→17。
+◉ 引发的思考
+把乘3加1里的3换成其他奇数成不成立呢？试着自己推导吧！
+（答案：成立）
+冰雹猜想的本质是：
+奇数操作引入局部涨落 （类似热力学中的布朗运动）；
+偶数操作实现全局冷却 （类似热辐射散热）。
+这种动态平衡最终导致系统坍缩至最简状态 1，如同一杯热水必然冷却到室温
+
+能表示为3N的数（是3的倍数的数）,证明（设这个数为M）：因为M是奇数，所以它有一个或多个前继偶数，且也是3的倍数，而任何3的倍数都不能表达为”3N+1“，所以M无论有多少个前继偶数，都没有前继奇数，也就是说，它是其所处的奇数链的第一个数。
+
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  i, j, kk: integer;
+  nn, m: TListItem;
+begin
+  //showmessage('角谷猜想');
+  memo1.Lines.Clear;
+
+  //memo1.Lines.Add('角谷猜想');
+  i := StrToInt(edit1.Text);
+  memo1.Lines.add(edit1.Text + '=' + i.ToHexString() + '=' + heto2(i.ToHexString(), 0));
+  memo1.Lines.add(heto2(i.ToHexString(), 0));
+  ListView1.Items.Clear;
+  ListView2.Items.Clear;
+  kk := 0;
+  while True do
+  begin
+    if i = 1 then
+      break;
+    if (i mod 2) = 0 then
+    begin
+      i := i div 2;
+      kk := kk + 1;
+      memo1.Lines.add(heto2(i.ToHexString(), 0) + '     /2');
+      nn := TListItem.Create(self.ListView1.Items);
+      nn.Caption := heto2(i.ToHexString(), 1);
+      nn.SubItems.Add('     /2');
+      ListView1.Items.AddItem(nn);
+
+      // m:=TListItem.Create(self.ListView2.Items);
+      // m.Caption:=heto2(trunc(i*power(2,kk)).ToHexString(),1);
+      // m.SubItems.Add('     /2');
+      //ListView2.Items.AddItem(m);
+    end;
+    if i = 1 then
+      break;
+    if (i mod 2) = 1 then
+    begin
+      i := i * 3 + 1;
+      memo1.Lines.add(heto2(i.ToHexString(), 0) + '     3n+1');
+
+      nn := TListItem.Create(self.ListView1.items);
+      nn.Caption := heto2(i.ToHexString(), 1);
+      nn.SubItems.Add('     3n+1');
+      ListView1.Items.AddItem(nn);
+
+      m := TListItem.Create(self.ListView2.items);
+      m.Caption := heto2(trunc(i * power(2, kk)).ToHexString(), 1);
+      m.SubItems.Add('     3n+1');
+      ListView2.Items.AddItem(m);
+    end;
+    if i = 1 then
+      break;
+  end;
+
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var
+  w1, w2, w3: string;
+  i, j, kkk, kk, www: integer;
+  nn, m, curnode, pnode, findnode, chnode: TTreeNode;
+  wwwpath: array[1..300] of integer;
+begin
+  treeview1.Items.Clear;
+  //treeview1.LoadFromFile();  // 这个暂不用
+  curnode := TTreeNode.Create(treeview1.Items);
+  curnode.Text := '1';
+  treeview1.Items.Add(curnode, '1');
+  curnode := TTreeNode.Create(treeview1.Items);
+  curnode.Text := '2';
+  treeview1.Items.Add(curnode, '2');
+  curnode := TTreeNode.Create(treeview1.Items);
+  curnode.Text := '4';
+  treeview1.Items.Add(curnode, '4');
+  curnode.Text := '8';
+  treeview1.Items.Add(curnode, '8');
+  curnode := TTreeNode.Create(treeview1.Items);
+  curnode.Text := '16';
+  //3,10,5,16,8,4,2,1
+  curnode := treeview1.Items.Add(curnode, '16');
+  pnode := curnode;
+  //curnode.Text := '5';
+  //treeview1.Items.Add(curnode, '5');
+  pnode := treeview1.Items.AddChild(pnode, '5');
+  pnode := treeview1.Items.AddChild(pnode, '3');
+  //curnode := TTreeNode.Create(treeview1.Items);
+  //curnode.Text := '3';
+  //treeview1.Items.Add(curnode, '3');
+  //3,10,5,16,8,4,2,1
+  kkk := StrToInt(edit2.Text);
+  for j := 7 to kkk do
+  begin
+    i := j;
+    kk := 0;
+    if (i mod 2) = 0 then
+      continue;
+
+    for www := 1 to 300 do
+      wwwpath[www] := 0;
+    while True do
+    begin
+      if i = 1 then
+        break;
+      if (i mod 2) = 0 then
+      begin
+        i := i div 2;
+      end;
+      if i = 1 then
+        break;
+      if is2power(i) then
+      begin
+        kk := kk + 1;
+        wwwpath[kk] := i;
+        break;
+      end;
+      if (i mod 2) = 1 then
+      begin
+        kk := kk + 1;
+        wwwpath[kk] := i;
+        i := i * 3 + 1;
+      end;
+      if i = 1 then
+        break;
+      if is2power(i) then
+      begin
+        kk := kk + 1;
+        wwwpath[kk] := i;
+        break;
+      end;
+    end;
+    pnode := nil;
+    chnode := nil;
+    findnode := nil;
+    for www := 300 downto 1 do
+    begin
+      if ((wwwpath[www] > 0) and (not is2power(wwwpath[www]))) then
+      begin
+        findnode := treeview1.Items.FindNodeWithText(IntToStr(wwwpath[www]));
+        if findnode<>nil then continue;
+        if is2power(wwwpath[www + 1]) then
+        begin
+          findnode := treeview1.Items.FindNodeWithText(IntToStr(wwwpath[www + 1]));
+          if findnode = nil then
+          begin
+            curnode := TTreeNode.Create(treeview1.Items);
+            curnode.Text := IntToStr(wwwpath[www + 1]);
+            pnode := treeview1.Items.Add(curnode, IntToStr(wwwpath[www + 1]));
+
+          end
+          else
+            pnode := findnode;
+
+          pnode := treeview1.Items.AddChild(pnode, IntToStr(wwwpath[www]));
+        end;
+        if not is2power(wwwpath[www + 1]) then //else
+        begin
+          findnode := treeview1.Items.FindNodeWithText(IntToStr(wwwpath[www + 1]));
+          if findnode = nil then
+          begin
+            curnode := TTreeNode.Create(treeview1.Items);
+            curnode.Text := IntToStr(wwwpath[www + 1]);
+            pnode := treeview1.Items.Add(curnode, IntToStr(wwwpath[www + 1]));
+
+          end
+          else
+            pnode := findnode;
+
+          pnode := treeview1.Items.AddChild(pnode, IntToStr(wwwpath[www]));
+
+        end;
+      end;
+    end;
+  end;
+
+end;
+
+procedure TForm1.FormShow(Sender: TObject);
+var
+  i: integer;
+begin
+  for i := 1 to 20 do
+    power2_20[i] := trunc(power(2, i));
+end;
+
+function TForm1.heto2(w: string; F0space: integer): string;
+var
+  w1, w2, w3: string;
+begin
+  Result := w;
+  Result := Result.Replace('0', '0000', [rfReplaceAll]);
+  Result := Result.Replace('1', '0001', [rfReplaceAll]);
+  Result := Result.Replace('2', '0010', [rfReplaceAll]);
+  Result := Result.Replace('3', '0011', [rfReplaceAll]);
+  Result := Result.Replace('4', '0100', [rfReplaceAll]);
+  Result := Result.Replace('5', '0101', [rfReplaceAll]);
+  Result := Result.Replace('6', '0110', [rfReplaceAll]);
+  Result := Result.Replace('7', '0111', [rfReplaceAll]);
+  Result := Result.Replace('8', '1000', [rfReplaceAll]);
+  Result := Result.Replace('9', '1001', [rfReplaceAll]);
+  Result := Result.Replace('A', '1010', [rfReplaceAll]);
+  Result := Result.Replace('B', '1011', [rfReplaceAll]);
+  Result := Result.Replace('C', '1100', [rfReplaceAll]);
+  Result := Result.Replace('D', '1101', [rfReplaceAll]);
+  Result := Result.Replace('E', '1110', [rfReplaceAll]);
+  Result := Result.Replace('F', '1111', [rfReplaceAll]);
+  //result:=w.Replace('F','0000',[rfReplaceAll]);
+  if F0space = 1 then
+  begin
+    w1 := Result;
+    w3 := w1.Replace('0', space(1), [rfReplaceAll]);
+    w2 := w1.Replace('0', space(1), [rfReplaceAll]);
+    w2 := w2.TrimLeft;
+    w2 := w2.Replace(space(1), '0', [rfReplaceAll]);
+    // result:=leftstr(w1,length(w3)-length(w2))+w2;
+    Result := leftstr(w3, length(w3) - length(w2)) + w2;
+  end;
+
+end;
+
+function TForm1.is2power(i: integer): boolean;
+var
+  j: integer;
+begin
+  Result := False;
+  for j := 1 to 20 do
+    if i = power2_20[j] then
+    begin
+      Result := True;
+      break;
+    end;
+end;                            
+
+

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="12"/>
+    <General>
+      <Flags>
+        <CompatibilityMode Value="True"/>
+      </Flags>
+      <SessionStorage Value="InProjectDir"/>
+      <Title Value="project1"/>
+      <Scaled Value="True"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+      <XPManifest>
+        <DpiAware Value="True"/>
+      </XPManifest>
+      <Icon Value="0"/>
+    </General>
+    <BuildModes Count="1">
+      <Item1 Name="Default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+    <RunParams>
+      <FormatVersion Value="2"/>
+    </RunParams>
+    <RequiredPackages Count="4">
+      <Item1>
+        <PackageName Value="FCL"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="SQLDBLaz"/>
+      </Item2>
+      <Item3>
+        <PackageName Value="TAChartLazarusPkg"/>
+      </Item3>
+      <Item4>
+        <PackageName Value="LCL"/>
+      </Item4>
+    </RequiredPackages>
+    <Units Count="2">
+      <Unit0>
+        <Filename Value="project1.lpr"/>
+        <IsPartOfProject Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="unit1.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit1"/>
+      </Unit1>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <Target>
+      <Filename Value="project1"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir);/usr/share/lazarus/3.0.0/components/tachart/;/usr/share/lazarus/3.0.0/components/;/usr/share/lazarus/3.0.0/components/sqlite/;/usr/share/lazarus/3.0.0/lcl/include/;/usr/share/lazarus/3.0.0/lcl/interfaces/;/snap/gnome-3-38-2004/119/usr/lib/;/usr/share/lazarus/3.0.0/lcl/;/usr/share/lazarus/3.0.0/lcl/widgetset/"/>
+      <Libraries Value="/usr/bin/;/usr/lib/;/usr/lib/x86_64-linux-gnu/;/snap/gnome-3-38-2004/143/usr/lib/x86_64-linux-gnu/;/usr/share/lazarus/3.0.0/lcl/;/usr/share/lazarus/3.0.0/lcl/widgetset/"/>
+      <OtherUnitFiles Value="$(LazarusDir)/components/codetools/units/$(TargetCPU)-$(TargetOS);$(LazarusDir)/lcl/units/$(TargetCPU)-$(TargetOS)/$(LCLWidgetType);$(LazarusDir)/lcl/units/$(TargetCPU)-$(TargetOS);$(LazarusDir)/packager/units/$(TargetCPU)-$(TargetOS);/usr/share/lazarus/3.0.0/components/tachart/editors/;/usr/share/lazarus/3.0.0/components/tachart/;/usr/share/lazarus/3.0.0/components/sqlite/;/usr/share/lazarus/3.0.0/components/ideintf/;/usr/share/lazarus/3.0.0/components/lazcontrols/;/usr/share/lazarus/3.0.0/lcl/;/usr/share/lazarus/3.0.0/lcl/interfaces/gtk2/;/usr/share/lazarus/3.0.0/lcl/widgetset/;/opt/kingsoft/wps-office/office6/"/>
+      <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <Linking>
+      <Debugging>
+        <DebugInfoType Value="dsDwarf3"/>
+      </Debugging>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="5">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+      <Item4>
+        <Name Value="ELayoutException"/>
+      </Item4>
+      <Item5>
+        <Name Value="EListError"/>
+      </Item5>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

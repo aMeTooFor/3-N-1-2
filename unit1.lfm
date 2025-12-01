@@ -1,0 +1,672 @@
+object Form1: TForm1
+  Left = 306
+  Height = 710
+  Top = 165
+  Width = 839
+  Caption = '角谷猜想        2025-7-4                               开发者：豆角/五谷/稻黍稷麦菽'
+  ClientHeight = 710
+  ClientWidth = 839
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  Position = poDesktopCenter
+  LCLVersion = '3.0.0.1'
+  WindowState = wsMaximized
+  object Button1: TButton
+    Left = 740
+    Height = 25
+    Top = 328
+    Width = 87
+    Anchors = [akTop, akRight]
+    Caption = '角谷猜想'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Edit1: TEdit
+    Left = 739
+    Height = 36
+    Top = 293
+    Width = 92
+    Anchors = [akTop, akRight]
+    Font.Height = -13
+    Font.Name = 'Sans'
+    ParentFont = False
+    TabOrder = 1
+    Text = '31'
+  end
+  object Label1: TLabel
+    Left = 736
+    Height = 23
+    Top = 269
+    Width = 90
+    Anchors = [akTop, akRight]
+    Caption = '数字：二进制'
+    ParentColor = False
+  end
+  object PageControl1: TPageControl
+    Left = 6
+    Height = 674
+    Top = 16
+    Width = 727
+    ActivePage = TabSheet4
+    Align = alCustom
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    TabIndex = 0
+    TabOrder = 2
+    object TabSheet4: TTabSheet
+      Caption = '树形图示'
+      ClientHeight = 637
+      ClientWidth = 717
+      object ScrollBox1: TScrollBox
+        Left = 0
+        Height = 637
+        Top = 0
+        Width = 717
+        HorzScrollBar.Page = 123
+        VertScrollBar.Page = 109
+        Align = alClient
+        ClientHeight = 635
+        ClientWidth = 715
+        TabOrder = 0
+        object ScrollBox2: TScrollBox
+          Left = 0
+          Height = 625
+          Top = 0
+          Width = 715
+          HorzScrollBar.Page = 121
+          VertScrollBar.Page = 97
+          Align = alClient
+          ClientHeight = 623
+          ClientWidth = 713
+          TabOrder = 0
+          object TreeView1: TTreeView
+            Left = 0
+            Height = 623
+            Top = 0
+            Width = 713
+            Align = alClient
+            AutoExpand = True
+            Images = ImageList1
+            ParentShowHint = False
+            ReadOnly = True
+            ShowHint = True
+            ShowSeparators = True
+            TabOrder = 0
+            OnAdvancedCustomDrawItem = TreeView1AdvancedCustomDrawItem
+            OnClick = TreeView1Click
+            OnCustomDrawItem = TreeView1CustomDrawItem
+            OnDblClick = TreeView1DblClick
+            OnMouseMove = TreeView1MouseMove
+            OnNodeChanged = TreeView1NodeChanged
+            OnSelectionChanged = TreeView1SelectionChanged
+            Options = [tvoAutoExpand, tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoShowSeparators, tvoToolTips, tvoThemedDraw]
+          end
+        end
+        object ScrollBar1: TScrollBar
+          Left = 0
+          Height = 10
+          Top = 625
+          Width = 715
+          Align = alBottom
+          PageSize = 0
+          TabOrder = 1
+          Visible = False
+          OnScroll = ScrollBar1Scroll
+        end
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'OneLine'
+      ClientHeight = 637
+      ClientWidth = 717
+      object ListView2: TListView
+        Left = 0
+        Height = 637
+        Top = 0
+        Width = 717
+        Align = alClient
+        Columns = <        
+          item
+            Alignment = taRightJustify
+            Caption = '数'
+            Width = 1000
+          end        
+          item
+            AutoSize = True
+            Caption = '运算'
+            MaxWidth = 50
+            MinWidth = 50
+          end>
+        Items.LazData = {
+          3A00000002000000FFFFFFFFFFFFFFFFFFFFFFFF00000000050000004974656D
+          30FFFFFFFFFFFFFFFFFFFFFFFF00000000050000004974656D31
+        }
+        TabOrder = 0
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = '文本'
+      ClientHeight = 637
+      ClientWidth = 717
+      object Memo1: TMemo
+        Left = 0
+        Height = 637
+        Top = 0
+        Width = 717
+        Align = alClient
+        Lines.Strings = (
+          'Memo1'
+        )
+        ScrollBars = ssBoth
+        TabOrder = 0
+      end
+    end
+    object TabSheet1: TTabSheet
+      Caption = 'ListView'
+      ClientHeight = 637
+      ClientWidth = 717
+      object ListView1: TListView
+        Left = 0
+        Height = 637
+        Top = 0
+        Width = 717
+        Align = alClient
+        Columns = <        
+          item
+            Alignment = taRightJustify
+            Caption = '数'
+            Width = 700
+          end        
+          item
+            Caption = '运算'
+            Width = 373
+          end>
+        Items.LazData = {
+          3A00000002000000FFFFFFFFFFFFFFFFFFFFFFFF00000000050000004974656D
+          30FFFFFFFFFFFFFFFFFFFFFFFF00000000050000004974656D31
+        }
+        TabOrder = 0
+      end
+    end
+    object TabSheet5: TTabSheet
+      AutoSize = True
+      Caption = '折线图示'
+      ClientHeight = 637
+      ClientWidth = 717
+      object Chart1: TChart
+        Left = 0
+        Height = 587
+        Top = 32
+        Width = 717
+        AxisList = <        
+          item
+            Intervals.MaxLength = 5
+            Intervals.MinLength = 1
+            Intervals.NiceSteps = '1'
+            Intervals.Options = [aipInteger]
+            Arrow.Visible = True
+            LabelSize = 10
+            MarginsForMarks = False
+            Marks.LabelBrush.Style = bsClear
+            Minors = <>
+            Range.Max = 10
+            Range.UseMax = True
+            Range.UseMin = True
+            Title.Clipped = False
+            Title.LabelFont.Orientation = 900
+            Title.Visible = True
+            Title.Caption = '数值'
+            Title.LabelBrush.Style = bsClear
+            Title.Wordwrap = True
+            OnGetMarkText = Chart1AxisList0GetMarkText
+            OnMarkToText = Chart1AxisList0MarkToText
+          end        
+          item
+            Intervals.Count = 50
+            Intervals.NiceSteps = '10'
+            Intervals.Options = [aipInteger]
+            Alignment = calBottom
+            Arrow.Visible = True
+            LabelSize = 10
+            Marks.LabelBrush.Style = bsClear
+            Minors = <>
+            Range.Max = 10
+            Range.UseMax = True
+            Range.UseMin = True
+            Title.Distance = 1
+            Title.Visible = True
+            Title.Caption = '间隔'
+            Title.LabelBrush.Style = bsClear
+            Title.Wordwrap = True
+          end>
+        Foot.Brush.Color = clBtnFace
+        Foot.Font.Color = clBlue
+        Foot.Visible = True
+        Legend.Visible = True
+        Title.Brush.Color = clBtnFace
+        Title.Font.Color = clBlue
+        Title.Text.Strings = (
+          'TAChart'
+        )
+        Title.Visible = True
+        Title.Wordwrap = True
+        OnAfterDraw = Chart1AfterDraw
+        OnBeforeCustomDrawBackWall = Chart1BeforeCustomDrawBackWall
+        OnExtentChanged = Chart1ExtentChanged
+        OnExtentChanging = Chart1ExtentChanging
+        Align = alCustom
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = Chart1Click
+        OnContextPopup = Chart1ContextPopup
+        OnMouseUp = Chart1MouseUp
+        object Chart1LineSeries1: TLineSeries
+          Legend.OnDraw = Chart1LineSeries1ChartSeriesLegendDraw
+          Title = 'line1111'
+          OnGetMark = Chart1LineSeries1GetMark
+          LinePen.Color = clBlue
+          Marks.OnGetShape = Chart1LineSeries1ChartMarksGetShape
+          Marks.Arrow.Visible = True
+          Marks.Format = '%2:s'
+          Marks.LinkDistance = 10
+          Marks.Style = smsLabel
+          Pointer.Visible = True
+          ShowPoints = True
+          OnCustomDrawPointer = Chart1LineSeries1CustomDrawPointer
+          OnGetPointerStyle = Chart1LineSeries1GetPointerStyle
+        end
+      end
+      object Button7: TButton
+        Left = 599
+        Height = 25
+        Top = 3
+        Width = 93
+        Anchors = [akTop, akRight]
+        Caption = '单条折线图示'
+        OnClick = Button7Click
+        TabOrder = 1
+      end
+      object Label4: TLabel
+        Left = 423
+        Height = 23
+        Top = 7
+        Width = 45
+        Anchors = [akTop, akRight]
+        Caption = '数字：'
+        ParentColor = False
+      end
+      object Edit3: TEdit
+        Left = 491
+        Height = 36
+        Top = 0
+        Width = 92
+        Anchors = [akTop, akRight]
+        Font.Height = -13
+        Font.Name = 'Sans'
+        ParentFont = False
+        TabOrder = 2
+        Text = '31'
+      end
+      object Button5: TButton
+        Left = 198
+        Height = 25
+        Top = 9
+        Width = 109
+        Anchors = [akTop, akRight]
+        Caption = '多条折线图示'
+        OnClick = Button5Click
+        TabOrder = 3
+      end
+      object Label5: TLabel
+        Left = -34
+        Height = 23
+        Top = 7
+        Width = 105
+        Anchors = [akTop, akRight]
+        Caption = '数字：树形结构'
+        ParentColor = False
+      end
+      object Edit4: TEdit
+        Left = 85
+        Height = 36
+        Top = 3
+        Width = 92
+        Anchors = [akTop, akRight]
+        Font.Height = -13
+        Font.Name = 'Sans'
+        ParentFont = False
+        TabOrder = 4
+        Text = '31'
+      end
+      object TreeView2: TTreeView
+        Left = 8
+        Height = 449
+        Top = 16
+        Width = 218
+        TabOrder = 5
+        Visible = False
+      end
+      object DBGrid1: TDBGrid
+        Left = 0
+        Height = 100
+        Top = 448
+        Width = 116
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'X'
+            FieldName = 'X'
+          end        
+          item
+            Title.Caption = 'Y'
+            FieldName = 'Y'
+          end        
+          item
+            Title.Caption = 'lineid'
+            FieldName = 'lineid'
+          end        
+          item
+            Title.Caption = 'parentid'
+            FieldName = 'parentid'
+          end        
+          item
+            Title.Caption = 'lineName'
+            FieldName = 'lineName'
+          end        
+          item
+            Title.Caption = 'lineTEXT'
+            FieldName = 'lineTEXT'
+          end>
+        DataSource = DataSource1
+        TabOrder = 6
+        Visible = False
+      end
+    end
+  end
+  object Label2: TLabel
+    Left = 731
+    Height = 23
+    Top = 116
+    Width = 105
+    Anchors = [akTop, akRight]
+    Caption = '数字：树形结构'
+    ParentColor = False
+  end
+  object Edit2: TEdit
+    Left = 739
+    Height = 36
+    Top = 140
+    Width = 92
+    Anchors = [akTop, akRight]
+    Font.Height = -13
+    Font.Name = 'Sans'
+    ParentFont = False
+    TabOrder = 3
+    Text = '311'
+  end
+  object Button2: TButton
+    Left = 740
+    Height = 25
+    Top = 177
+    Width = 90
+    Anchors = [akTop, akRight]
+    Caption = '稻黍稷麦菽'
+    Color = clGradientActiveCaption
+    Font.Color = clHighlight
+    OnClick = Button2Click
+    ParentFont = False
+    TabOrder = 4
+  end
+  object Button3: TButton
+    Left = 740
+    Height = 25
+    Top = 204
+    Width = 90
+    Anchors = [akTop, akRight]
+    Caption = '白言规则'
+    OnClick = Button3Click
+    TabOrder = 5
+  end
+  object Button4: TButton
+    Left = 742
+    Height = 25
+    Top = 78
+    Width = 87
+    Anchors = [akTop, akRight]
+    Caption = '查找定位'
+    OnClick = Button4Click
+    TabOrder = 6
+  end
+  object seaknum: TEdit
+    Left = 737
+    Height = 36
+    Top = 41
+    Width = 92
+    Anchors = [akTop, akRight]
+    Font.Height = -13
+    Font.Name = 'Sans'
+    ParentFont = False
+    TabOrder = 7
+    Text = '27'
+  end
+  object Label3: TLabel
+    Left = 733
+    Height = 18
+    Top = 17
+    Width = 96
+    Anchors = [akTop, akRight]
+    Caption = '树形图内查找定位'
+    Font.Height = -12
+    Font.Name = 'Sans'
+    ParentColor = False
+    ParentFont = False
+  end
+  object Button6: TButton
+    Left = 739
+    Height = 25
+    Top = 232
+    Width = 90
+    Anchors = [akTop, akRight]
+    Caption = '白言规则'
+    OnClick = Button3Click
+    TabOrder = 8
+  end
+  object Button8: TButton
+    Left = 732
+    Height = 25
+    Top = 384
+    Width = 105
+    Anchors = [akTop, akRight]
+    Caption = '测试scrollTOP'
+    OnClick = Button8Click
+    TabOrder = 9
+  end
+  object ImageList1: TImageList
+    Left = 136
+    Top = 104
+    Bitmap = {
+      4C7A020000001000000010000000BA0300000000000078DA9D945B4C53591486
+      35669E7C54E1C11B89934974C6447D321AA3262A93514789A2D8020A0246A405
+      46194D9F2012611CE42288A011131303DE2AA080E00D1A6DB13D142CC53A4822
+      548871A8C519E83E5C1A7ED7694FCB392D51F4E14B76F75AFFDA6BEDF3EF32C6
+      66312F7388A58C8D4430D7F06FC4FA0036532C9AF16C35CFD85C36A59BE51A19
+      5ED6A3CD6A37697E8641150A43CA02E80310F60CAA1050CE648F36739034CB45
+      FD0FA4359B54F361244C33E48D36AB9BB4B3A997459CE69719EB7C70D42BE3F9
+      5F69A63D7AEA591AB395EEC3BFC65BF8BFBF13C303567C30DDC2EB8B51B29C56
+      752818736D60AE91DD7AD5026FCD134B30F8B20EFCD000ECF5B9B0952B612B53
+      A2EF7E0E78E73B383A1B2827CC932BDC07CF5CFBE85EB71B44BD257713DEBFA8
+      82A570079CB627704F8CC2ED1E85F31F1DBACEEFA65825AC67B748F5D152BDA7
+      87F48570D1F97DB5A7612D8E4017F1B6260BECD37B98FE584439F3BEA81768A3
+      1EFB1F5FC0F8980B13630C032D97A8EFA562FCEB7A016BDE367416EC20B6C392
+      1F4EDF769E2C2ED1EF9C4E2F9C3731CEE01EE761CC080B8AFBF56C24C6A00E09
+      FEC6B43768A9A73B7F00636A88BF6FFFF75379BE9FE0E73546F2C277FAE798E0
+      C1EE3B99D6C0FA5F83DE004FDE5D27BE9F55E4672BD59C34A843C5B7124C2BBD
+      1F4EB382BC9F394E9A1ED2CE97BE436231CD14469EDC4AEC096017C5F633C6A7
+      D0B96B2877A3A0498A5556113A42EF2146314680D61DFE3D391D8942DC9B6327
+      FA8FC42A2709CC1441EB5FC72ACDD23D69ECCB7A854CEFDFF7F605CD89349415
+      17A19CD01C4F9F4CF2E4F86A2BA4B526A4B593E3625177AF06379A2A71FC6A3A
+      D22A5251D9781DF76BAA911C7FD03BB788A8FF28D5D7D668A1B9760A9B2E6FC4
+      DAF2B55855B2123FE5FD0875850AB577EF887D28A5F3BFF5ADFF4C53A15A7717
+      BBAEFF8E386D1C1AAD8DA8B7D421FCCA5624DC4B84B98B43863A453603E96DBE
+      D90BCEE6A0A0A900CAEA683CA5FF0FC747071C0E077A077BC1F12FC1F571C8FB
+      EB4CE0F9FEFBFBFB4C362EB694E16863325AACCD703A9D181A1AC2ABDE2E3CFB
+      4F0FCEDE869CEC2CF9FC12BD2AE9309ADA9A90D17C12D90DD9D0199BF19CD3E1
+      76C76D3C743C86B9DB8C6309F1BCD0FB747A61AFACB40455ED37906BCA45A1A9
+      10573A2B70D3AEC573BB01A525C548F0F9731ABDC0A1A8481415E64367D1A1FE
+      75031EBE7984D6574614E59FC3C1A848B7E7FE83F4323F786A28F6462035E528
+      D44414ADE30F44CA7C33757F8A4F53BF25DE2012458EC428DD81FE95F867F45B
+      DE4EF0F9F2F967FC7EC4BCCF064BFFB3
+    }
+  end
+  object DbChartSource1: TDbChartSource
+    DataSource = DataSource1
+    FieldText = 'linename'
+    FieldX = 'x'
+    FieldY = 'y'
+    Left = 289
+    Top = 118
+  end
+  object SQLQuery1: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'X'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'Y'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'lineid'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'lineName'
+        DataType = ftMemo
+        Precision = -1
+      end    
+      item
+        Name = 'parentid'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'lineTEXT'
+        DataType = ftMemo
+        Precision = -1
+      end>
+    AutoCalcFields = False
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select *  from linesXy'
+    )
+    Params = <>
+    Macros = <>
+    UsePrimaryKeyAsKey = False
+    Left = 192
+    Top = 232
+    object SQLQuery1X: TLongintField
+      FieldKind = fkData
+      FieldName = 'X'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery1Y: TLongintField
+      FieldKind = fkData
+      FieldName = 'Y'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery1lineid: TLongintField
+      FieldKind = fkData
+      FieldName = 'lineid'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery1lineName: TMemoField
+      FieldKind = fkData
+      FieldName = 'lineName'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftMemo
+      Transliterate = False
+    end
+    object SQLQuery1parentid: TLongintField
+      FieldKind = fkData
+      FieldName = 'parentid'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery1lineTEXT: TMemoField
+      FieldKind = fkData
+      FieldName = 'lineTEXT'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftMemo
+      Transliterate = False
+    end
+  end
+  object DataSource1: TDataSource
+    AutoEdit = False
+    DataSet = SQLQuery1
+    Left = 423
+    Top = 134
+  end
+  object SQLite3Connection1: TSQLite3Connection
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = '/media/w/data/角谷猜想/考拉兹猜想Ubuntu_Lazarus30/考拉兹猜想Ubuntu_Lazarus/dbchartds.sqlite3'
+    KeepConnection = False
+    AlwaysUseBigint = False
+    Left = 440
+    Top = 232
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Action = caNone
+    Database = SQLConnector1
+    Left = 312
+    Top = 324
+  end
+  object SQLDBLibraryLoader1: TSQLDBLibraryLoader
+    Enabled = True
+    ConnectionType = 'SQLite3'
+    LibraryName = 'libsqlite3.so'
+    Left = 633
+    Top = 191
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = '/media/w/data/角谷猜想/考拉兹猜想Ubuntu_Lazarus30/考拉兹猜想Ubuntu_Lazarus/dbchartds.sqlite3'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    ConnectorType = 'SQLite3'
+    Left = 520
+    Top = 328
+  end
+end
